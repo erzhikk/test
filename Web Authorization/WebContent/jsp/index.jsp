@@ -12,37 +12,35 @@
 <title>Login</title>
 </head>
 <body class="bg-primary">
-<div class="container"><br>
-<h1 class="form-heading"><center>Welcome to Library Management System</center></h1>
-<div class="login-form">
-<div class="main-div">
-    <div class="panel">
-   <h2>Admin Login</h2>
-   <p>Please enter your email and password</p>
-   </div>
-    <form id="Login" action="login" method ="POST">
+	<div class="container"><br>
+		<h1 class="form-heading"><center>Welcome to Library Management System</center></h1>
+		<div class="login-form">
+			<div class="main-div">
+			    <div class="panel">
+			   <h2>Admin Login</h2>
+			   <p>Please enter your email and password</p>
+			   </div>
+			    <form id="Login" action="login" method ="POST">
+			
+			        <div class="form-group">
+			            <input type="email" name ="login_email" class="form-control" id="inputEmail" placeholder="Email Address">
+			        </div>
+			        <div class="form-group">
+			            <input type="password" name = "login_password" class="form-control" id="inputPassword" placeholder="Password">
+			        </div>
+			        <button type="submit" class="btn btn-primary">Login</button>
+			    </form>
+			  
+			        <div class="forgot">
+			        	<a href="/Web_Authorization/forgot">Forgot password?</a>
+					</div>			    
+			    
 
-        <div class="form-group">
-
-
-            <input type="email" name ="login_email" class="form-control" id="inputEmail" placeholder="Email Address">
-
-        </div>
-
-        <div class="form-group">
-
-            <input type="password" name = "login_password" class="form-control" id="inputPassword" placeholder="Password">
-
-        </div>
-        <div class="forgot">
-        <a href="reset.html">Forgot password?</a>
-</div>
-        <button type="submit" class="btn btn-primary">Login</button>
-
-    </form>
-    </div>
-<p class="botto-text"> Designed by erzhikk</p>
-</div></div></div>
+			    </div>
+			<p class="botto-text"> Designed by erzhikk</p>
+			</div>
+		</div>
+	</div>
 
 
 </body>

@@ -13,33 +13,28 @@ import web.db.ControllerData;
 import web.md5.GenerateMD5;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class SignUpServlet
  */
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/signUp")
+public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public SignUpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("jsp/index.jsp").include(request, response);
-	}
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("login_email");
-		String password = request.getParameter("login_password");
+		String email = request.getParameter("signup_email");
+		String name = request.getParameter("signup_name");
+		String surname = request.getParameter("signup_surname");
+		String password = request.getParameter("signup_password");
 		System.out.println("login: " + email + ", password: " + password);
 		
 		GenerateMD5 md = new GenerateMD5();
@@ -56,18 +51,19 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("hashcode is : " + hashPassword);
 		
 		ControllerData cd = new ControllerData();
-		int verifyLogin = cd.verifyLogin(email, hashPassword);
+		int signUp = cd.signUp(email, name, surname, hashPassword);
 		
-		if(verifyLogin == -1) {
+		if(signUp == -1) {
 			System.out.println("There is a problem with SQL Exception.");
 			request.getRequestDispatcher("jsp/index.jsp").include(request, response);
-		}else if(verifyLogin == 0) {
+		}else if(signUp == 0) {
 			System.out.println("There is incorrect login or password.");
 			request.getRequestDispatcher("jsp/index.jsp").include(request, response);
 			response.getWriter().println("<h2><font color = \"red\"><center>Incorrect login or password!</center></font></h2>");
 		}else {
 			System.out.println("Login and password are true.");
-			request.getRequestDispatcher("jsp/mainpage.jsp").include(request, response);
+			request.getRequestDispatcher("jsp/index.jsp").include(request, response);
 		}
 	}
+
 }

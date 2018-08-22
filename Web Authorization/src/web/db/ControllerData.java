@@ -57,11 +57,7 @@ public class ControllerData {
 			ps.setString(3, surname);
 			ps.setString(4, password);
 			
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				result = rs.getInt(1);
-				System.out.println("insert result = " + result);
-			}
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

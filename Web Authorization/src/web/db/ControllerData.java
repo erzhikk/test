@@ -57,10 +57,12 @@ public class ControllerData {
 			ps.setString(3, surname);
 			ps.setString(4, password);
 			
-			ps.executeUpdate();
+			result = ps.executeUpdate();
+			System.out.println("Result is " + result);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Result is " + result);
+			System.out.println("Exception in SQL: " + e.toString());
+			
 		}
 		return result;
 	}

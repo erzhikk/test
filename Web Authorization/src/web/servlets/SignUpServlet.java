@@ -26,6 +26,9 @@ public class SignUpServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("jsp/signUp.jsp").include(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -57,12 +60,13 @@ public class SignUpServlet extends HttpServlet {
 			System.out.println("There is a problem with SQL Exception.");
 			request.getRequestDispatcher("jsp/index.jsp").include(request, response);
 		}else if(signUp == 0) {
-			System.out.println("There is incorrect login or password.");
-			request.getRequestDispatcher("jsp/index.jsp").include(request, response);
-			response.getWriter().println("<h2><font color = \"red\"><center>Incorrect login or password!</center></font></h2>");
+			System.out.println("There is already exist this email.");
+			request.getRequestDispatcher("jsp/signUp.jsp").include(request, response);
+			response.getWriter().println("<h2><font color = \"red\"><center>There is already exist this email</center></font></h2>");
 		}else {
 			System.out.println("Login and password are true.");
-			request.getRequestDispatcher("jsp/index.jsp").include(request, response);
+			request.getRequestDispatcher("jsp/signUp.jsp").include(request, response);
+			response.getWriter().println("<h2><font color = \"red\"><center>Registration passed successfully!</center></font></h2>");
 		}
 	}
 

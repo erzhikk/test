@@ -32,7 +32,8 @@
 			    </form>
 			  
 			        <div class="forgot">
-			        	<a href="/Web_Authorization/forgot">Forgot password?</a>
+			        	<a href="/Web_Authorization/forgot">Forgot password?</a><br>
+			        	If you have an account, please <a href="/Web_Authorization/signUp">sign up</a>.
 					</div>			    
 			    
 

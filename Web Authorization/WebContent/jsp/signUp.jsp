@@ -38,7 +38,7 @@
 
     </form>
         <div class="forgot">
-        	<a href="/Web_Authorization/login">Already have an account? Sign in</a>
+        	Already have an account? <a href="/Web_Authorization/login">Sign in</a>
 		</div>
     </div>
 <p class="botto-text"> Designed by erzhikk</p>

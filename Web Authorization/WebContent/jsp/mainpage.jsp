@@ -14,7 +14,9 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color: #e1f3fc;">
-	<div>Username</div>
+	<div>
+		<i>Username</i>
+	</div>
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -30,8 +32,13 @@
 	</div>
 	</nav>
 	<div class="main_info">
-	<div class="p-3 mb-2 bg-secondary text-white">
-		<%@include file="library_actions/addBook.jsp" %>
+		<div class="p-3 mb-2 bg-secondary text-white">
+			<%@include file="library_actions/addBook.jsp"%>
+		</div><br>
+		<div class="form-group">
+			<center><iframe src="https://bnews.kz/ru" width="90%" height="500px" align="center">
+		Ваш браузер не поддерживает плавающие фреймы! </iframe></center>
+		</div>
 	</div>
-	</div>
+
 </body>

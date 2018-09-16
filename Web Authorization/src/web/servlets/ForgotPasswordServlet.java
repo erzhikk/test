@@ -26,6 +26,6 @@ public class ForgotPasswordServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("jsp/signUp.jsp").include(request, response);
+		request.getRequestDispatcher("jsp/recoverPassword.jsp").include(request, response);
 	}
 }

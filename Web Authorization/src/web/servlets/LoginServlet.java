@@ -67,6 +67,7 @@ public class LoginServlet extends HttpServlet {
 			response.getWriter().println("<h2><font color = \"red\"><center>Incorrect login or password!</center></font></h2>");
 		}else {
 			System.out.println("Login and password are true.");
+			request.setAttribute("userInfo", cd.userInfo(email));
 			request.getRequestDispatcher("jsp/mainpage.jsp").include(request, response);
 		}
 	}

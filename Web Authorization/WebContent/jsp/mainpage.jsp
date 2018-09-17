@@ -36,8 +36,25 @@
 </style>
 </head>
 <body style="background-color: #e1f3fc;">
+<%
+	ControllerData cd = new ControllerData();
+	ArrayList <String> userInfo = new ArrayList <String>();
+	userInfo = (ArrayList) request.getAttribute("userInfo");
+	Iterator it = userInfo.iterator();
+	String surname = "";
+	String name = "";
+	String email = "";
+	while(it.hasNext()){
+		HashMap row = (HashMap) it.next();
+		surname = (String) row.get("surname");
+		name = (String) row.get("name");
+		email = (String) row.get("email");
+	}
+	
+%>
 	<div>
-		<i>Username</i>
+		<i>Welcome, <%=surname %> <%=name %></i>
+		<a style="float: right; padding-right: 50px; cursor: pointer"><span class="glyphicon glyphicon-off" id="icon">Logout</span></a>
 	</div>
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
@@ -57,7 +74,7 @@
 
 
 </body>
-<script>
+<script type="text/javascript">
 var header = document.getElementById("nav");
 var btns = header.getElementsByClass("menu");
 for (var i = 0; i < btns.length; i++) {

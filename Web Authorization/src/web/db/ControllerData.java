@@ -36,6 +36,23 @@ public class ControllerData {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			result = -1;
+		}finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				stmt = null;
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				conn = null;
+			}
 		}
 
 		if (result == 1) {
@@ -45,8 +62,8 @@ public class ControllerData {
 		return result;
 	}
 
-	public ArrayList userInfo(String login) {
-		ArrayList list = new ArrayList();
+	public ArrayList <Object> userInfo(String login) {
+		ArrayList <Object> list = new ArrayList<Object>();
 
 		String userParams = "select surname, name, email from login_password where email = ?";
 
@@ -59,18 +76,22 @@ public class ControllerData {
 			conn = db.getConnection();
 			ps = conn.prepareStatement(userParams);
 			ps.setString(1, login);
-			ResultSetMetaData rsmd = rs.getMetaData();
+			rs = ps.executeQuery();
+			
 			Object surname = null;
 			Object name = null;
 			Object email = null;
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
 			int columns = rsmd.getColumnCount();
 
 			while (rs.next()) {
+				
 				surname = rs.getObject(1);
 				name = rs.getObject(2);
 				email = rs.getObject(3);
 
-				HashMap row = new HashMap();
+				HashMap <String, Object>row = new HashMap<String, Object>();
 
 				for (int i = 1; i <= columns; i++) {
 					row.put(rsmd.getColumnName(i), rs.getObject(i));
@@ -110,9 +131,6 @@ public class ControllerData {
 				conn = null;
 			}
 		}
-		if(list.isEmpty()) {
-			list.add("erzhikk");
-		}
 		System.out.println("LIst size = " + list.size());
 		return list;
 	}
@@ -141,6 +159,23 @@ public class ControllerData {
 			System.out.println("Result is " + result);
 			System.out.println("Exception in SQL: " + e.toString());
 
+		}finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				ps = null;
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				conn = null;
+			}
 		}
 		return result;
 	}

@@ -54,7 +54,7 @@
 %>
 	<div>
 		<i>Welcome, <%=surname %> <%=name %></i>
-		<a style="float: right; padding-right: 50px; cursor: pointer"><span class="glyphicon glyphicon-off" id="icon">Logout</span></a>
+		<a style="float: right; padding-right: 50px; cursor: pointer" href="/Web_Authorization/logout"><span class="glyphicon glyphicon-off" id="icon">Logout</span></a>
 	</div>
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">

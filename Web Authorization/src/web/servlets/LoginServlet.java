@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import web.db.ControllerData;
 import web.md5.GenerateMD5;
@@ -67,6 +68,7 @@ public class LoginServlet extends HttpServlet {
 			response.getWriter().println("<h2><font color = \"red\"><center>Incorrect login or password!</center></font></h2>");
 		}else {
 			System.out.println("Login and password are true.");
+			HttpSession session=request.getSession();  
 			request.setAttribute("userInfo", cd.userInfo(email));
 			request.getRequestDispatcher("jsp/mainpage.jsp").include(request, response);
 		}
